@@ -67,11 +67,17 @@ This project filters and focuses on relevant events for modeling user conversion
 
 ## Model accuracy:
   Precision  Recall  F1-Score       Support  ROC AUC
+  
 0                 1.000   0.836     0.911  1.030207e+07      NaN
+
 1                 0.089   0.998     0.163  1.647770e+05      NaN
+
 accuracy          0.839   0.839     0.839  8.390000e-01      NaN
+
 macro avg         0.544   0.917     0.537  1.046685e+07      NaN
+
 weighted avg      0.986   0.839     0.899  1.046685e+07      NaN
+
 ROC AUC             NaN     NaN       NaN           NaN     0.93
 
 # Future Work
