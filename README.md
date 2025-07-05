@@ -37,42 +37,47 @@ Data Source
 
 The dataset includes anonymized user interactions with the e-commerce platform. Each row represents a user event, containing:
 
-event_time: Timestamp of the user event.
+* event_time: Timestamp of the user event.
 
-user_id, session_id: User and session identifiers.
+* user_id, session_id: User and session identifiers.
 
-event_type: One of view, cart, or purchase.
+* event_type: One of view, cart, or purchase.
 
-product_id, category_code, brand: Item-related features.
+* product_id, category_code, brand: Item-related features.
 
-price: Product price.
+* price: Product price.
 
 This project filters and focuses on relevant events for modeling user conversion behavior.
 
-Project Structure
+# Project Structure
 
-data_preprocessing.ipynb: Cleans missing values, filters out irrelevant rows, fills missing brands/categories using product_id mappings.
+* 0_load_dataset.ipynb: Load dataset from source and change it to a parquet file.
 
-eda_feature_engineering.ipynb: Explores user activity, constructs features such as prior views, session event counts, previous purchases of a brand, etc.
+* 1_Summary_Statistics.ipynb: Explores user activity, constructs features such as prior views, session event counts, previous purchases of a brand, etc.
 
-model_training.ipynb: Trains two classification models: Logistic Regression and XGBoost. Applies class balancing if needed.
+* 2_Supervised_Learnings.ipynb: Trains classification model: XGBoost. Applies class balancing if needed. Visualizes confusion matrices and ROC curves. Displays performance metrics in formatted tables.
 
-evaluation.ipynb: Visualizes confusion matrices and ROC curves. Displays performance metrics in formatted tables.
+# Results
 
-Results
+* Most purchases are preceded by 2-4 views.
 
-Most purchases are preceded by 2-4 views.
+* Certain brands have significantly higher conversion rates.
 
-Certain brands have significantly higher conversion rates.
+* XGBoost performs with high precision and ROC-AUC.
 
-XGBoost performs better than Logistic Regression, with higher precision and ROC-AUC.
+## Model accuracy:
+  Precision  Recall  F1-Score       Support  ROC AUC
+0                 1.000   0.836     0.911  1.030207e+07      NaN
+1                 0.089   0.998     0.163  1.647770e+05      NaN
+accuracy          0.839   0.839     0.839  8.390000e-01      NaN
+macro avg         0.544   0.917     0.537  1.046685e+07      NaN
+weighted avg      0.986   0.839     0.899  1.046685e+07      NaN
+ROC AUC             NaN     NaN       NaN           NaN     0.93
 
-Model:
+# Future Work
 
-Future Work
+* Tune hyperparameters using cross-validation.
 
-Tune hyperparameters using cross-validation.
+* Add time-series features (e.g., session duration).
 
-Add time-series features (e.g., session duration).
-
-Explore deep learning approaches.
+* Explore deep learning approaches.
